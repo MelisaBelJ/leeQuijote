@@ -1,6 +1,6 @@
 # leeQuijote
 
-Se han metido todos los métodos dentro de una clase leeFichero, que se inicializa con el nombre de un fichero, por modularidad.
+Se han metido todas las funciones dentro de una clase _leeFichero_ como funciones estáticas por modularidad y para hacerlo más facilmente reutilizable.
 
 ## Método _extraeLineas_
 Escrbe de forma aleatoria líneas de un fichero y las escribe en otro.
@@ -17,3 +17,5 @@ Opcionalmente recibe como argumento el nombre del fichero de entrada, sino utili
 Si recibe el nombre de un fichero, cambia el de la clase por ese.
 
 # Prueba
+
+Se ha probado con el fichero _quijote.txt_.
