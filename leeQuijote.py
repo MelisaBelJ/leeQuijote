@@ -53,7 +53,6 @@ class leeFichero():
             data = sc.textFile(self.fichero)
             rdd = data.map(lambda x: leeFichero.word_split(x))
             mensaje = f'Numero de palabras en {self.fichero} es :{rdd.sum()}'
-            print(mensaje)
             with open(self.salidaCuentaPalabras, 'w') as f:
                 f.write(mensaje)
     
