@@ -6,6 +6,8 @@ import random
 class leeFichero():    
     def __init__(self, fichero):
         self.fichero = fichero
+        self.salidaCuentaPalabras = ''
+        self.salidaLineasAleatorias = ''
     
     @staticmethod
     def word_split(line):
@@ -26,10 +28,10 @@ class leeFichero():
         with SparkContext() as sc:
             sc.setLogLevel("ERROR")
             data = sc.textFile(self.fichero)
-            rdd  = data.map(lambda x: [x, random.randint(0, 1)]).filter(lambda x : 1 in x[1])
-            print(rdd.isEmpty())
+            rdd  = data.map(lambda x: [x, random.randint(0, 1)]).filter(lambda x : x[1]==1).map(lambda x: x[0])
             with open(self.salidaLineasAleatorias, 'w') as f:
-                f.write(rdd.collect())
+                for r in rdd.collect():
+                    f.write(r + '\n')
                 
     def getFicherosSalida(self):
         return {'lineasAleatorias': self.salidaLineasAleatorias, 'cuentaPalabras': self.salidaCuentaPalabras}
@@ -50,13 +52,13 @@ class leeFichero():
             sc.setLogLevel("ERROR")
             data = sc.textFile(self.fichero)
             rdd = data.map(lambda x: leeFichero.word_split(x))
-            mensaje = f'Numero de palabras en {self.fichero} es :{rdd.count()}'
+            mensaje = f'Numero de palabras en {self.fichero} es :{rdd.sum()}'
             print(mensaje)
             with open(self.salidaCuentaPalabras, 'w') as f:
                 f.write(mensaje)
     
 
-def main(fichero = 'quijote.txt', resume = True):   
+def main(fichero = 'quijote.txt', resume = False):   
     f = leeFichero(fichero)   
     if resume:
         f.copiaLineasAleatorias() 
@@ -64,7 +66,10 @@ def main(fichero = 'quijote.txt', resume = True):
     f.cuentaPalabras()
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        main('pruebaCorta.txt')
-    else:
+    if len(sys.argv) == 2:
         main(sys.argv[1])
+    elif len(sys.argv) == 3:
+        main(sys.argv[1], sys.argv[2]=='resume')
+    else:
+        main()
+        
