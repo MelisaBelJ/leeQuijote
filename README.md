@@ -7,9 +7,13 @@ Escrbe de forma aleatoria líneas de un fichero y las escribe en otro.
 
 Opcionalmente recibe como argumento el nombre del fichero de entrada, sino utiliza el que propio de la clase. 
 
+Si recibe el nombre de un fichero, cambia el de la clase por ese.
+
 ## Método _cuentaPalabras_
 Cuenta las palabras que hay en un fichero y escribe ese número en otro.
 
 Opcionalmente recibe como argumento el nombre del fichero de entrada, sino utiliza el que propio de la clase. 
+
+Si recibe el nombre de un fichero, cambia el de la clase por ese.
 
 # Prueba
