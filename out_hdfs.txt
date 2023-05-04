@@ -1,0 +1,1 @@
+Numero de palabras en hdfs.txt es :381225

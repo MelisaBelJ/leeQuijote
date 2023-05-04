@@ -57,7 +57,7 @@ class leeFichero():
                 f.write(mensaje)
     
 
-def main(fichero = 'quijote.txt', resume = False):   
+def main(fichero = 'hdfs.txt', resume = False):   
     f = leeFichero(fichero)   
     if resume:
         f.copiaLineasAleatorias() 

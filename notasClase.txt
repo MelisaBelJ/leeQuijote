@@ -1,0 +1,12 @@
+#Para conectarse al servidor: 
+sshuttle -HNr melisabe@wild.mat.ucm.es -x wild.mat.ucm.es
+
+En otra:
+scp leeQuijote.py melisabe@wild.mat.ucm.es:lee.py
+scp quijote.txt melisabe@wild.mat.ucm.es:hdfs.txt
+ssh melisabe@wild.mat.ucm.es
+spark-submit  --master spark://master:7077  lee.py
+scp melisabe@wild.mat.ucm.es:out_hdfs.txt out_hdfs.txt
+
+Historial:
+http://172.17.0.1:18081/

@@ -19,3 +19,5 @@ Si recibe el nombre de un fichero, cambia el de la clase por ese.
 # Prueba
 
 Se ha probado con el fichero _quijote.txt_.
+
+En el cluster se ha probado con el fichero _hdfs.txt_
